@@ -110,9 +110,48 @@ position = 0
 for i in range(1, len(arr)):
     if arr[i] != arr[position]:
         position += 1
-        arr[position] = arr[i]
+        arr[position] = arr[i]  # O(n) time and O(1) extra space.
 
 print(arr[:position + 1])
 
+# Try two-sum with brute force first; record its time complexity.
+# given an array of integers and a target number. 
+# Find two different elements whose sum equals the target.
+def twoSum(int, target):
+    
+    for i in range(len(int)):
+        for j in range(i+1,len(int)):
+            if int[i] + int[j]  == target:
+                return [i,j]
+                
+    return []
 
-# Rebuild 2 programs without notes.
+
+print(twoSum([2, 7, 11, 15], 9))
+print(twoSum([3, 2, 4], 6)) # time complexity = O(n2), space = O(1)
+
+
+# Revisit Days 1–6, Rebuild 2 programs without notes.
+#Program 1 - First non-repeating character.
+# Given a string, return the first character that appears only once.
+word = "Geography"
+frequency = {}
+found = False
+for ch in word:
+    if ch in frequency:
+        frequency[ch]+=1
+    else:
+        frequency[ch] = 1
+for ch in word:
+    if ch == frequency:
+        print(ch)
+        found = True
+        break
+for ch in word:      # time  = O(n) and space = O(k)
+    if not found:
+        print(-1)
+
+
+
+#Program 2 — Binary Search
+#Find the index of the target in a sorted array. Return -1 if it isn't found.
